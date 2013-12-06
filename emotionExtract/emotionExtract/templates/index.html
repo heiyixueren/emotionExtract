@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>emotion extract</title>
+		<link href="/static/css/base.css" type="text/css" rel="stylesheet" />
+	</head>
+	<body>
+		<h3>请输入将要进行分析的文本内容</h3>
+		<textarea class="text-part" id="textArea"></textarea>
+		<div>
+			<h3>请选择文本类型</h3>
+			<div>
+				<strong>普通文本</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如：习近平在周日的演讲中强调了中国的经济吸引力，预测5年内中国的进口将达到10万亿美元
+				<br/>
+				<strong>微博格式文本</strong>	例如：UID	昵称	账户类型	粉丝数	性别	地区	城市类别	微博URL	微博日期	话题	微博内容	被转发次数
+			</div>
+			<p>
+				<label><input type="radio" name="textType" value="0" checked="checked"/>普通文本</label>
+				<label><input type="radio" name="textType" value="1" />微博格式文本</label>
+			</p>
+		</div>
+		<div>
+			<label>请输入将要提取的关键词个数(默认为10)：<input id="numOfKeyWords" type="text" /></label>
+			<button id="btn-1">提取</button>
+		</div>
+		<div>
+			<h3 id="showKeyWordsTitle"></h3>
+			<div id="keyWords"></div>
+		</div>
+		
+		<div id="container"></div>
+		
+		<div>
+			<div id="support"></div>
+			<div id="oppose"></div>
+			<div id="neutral"></div>
+		</div>
+	</body>
+	<script src="/static/js/jquery.js"></script>
+	<script src="/static/highcharts/jquery.js"></script>
+	<script src="/static/highcharts/highcharts.js"></script>
+	<script src="/static/js/base.js"></script>
+</html>
