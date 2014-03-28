@@ -5,14 +5,21 @@ import jieba,jieba.analyse,os
 
 #将文本转换为自己需要的编码类型
 def inverse_need_type(text,need_type):
+    if len(text)>0:
+        text_type = chardet.detect(text)
+        codingType = text_type['encoding']
+        if codingType != need_type:
+            if isinstance(text, unicode):
+                text = text.encode(need_type,'ignore')
+            else:
+                text = text.decode(codingType,'ignore').encode(need_type,'ignore')
+    return text
+    
+#获取文本编码格式
+def getTextEncoding(text):
     text_type = chardet.detect(text)
     codingType = text_type['encoding']
-    if codingType != need_type:
-        if isinstance(text, unicode):
-            text = text.encode(need_type,'ignore')
-        else:
-            text = text.decode(codingType,'ignore').encode(need_type,'ignore')
-    return text
+    return codingType
     
 #获取关键词
 def getKeyWords(text,num):
@@ -26,6 +33,11 @@ def getTextEmotion(text):
     text = inverse_need_type(text,'utf-8')
     emotionType_result = getEmotion.getEmotionType(text)
     
+    filePath = os.path.join(os.path.dirname(__file__),'DATA/resultsvm.txt').replace('\\','/')
+    file = open(filePath,'w')
+    file.write('\n'.join(map(str,emotionType_result)))
+    file.close()
+    
     text = text.split('\n')
     size = len(emotionType_result)
     
@@ -34,6 +46,7 @@ def getTextEmotion(text):
     num_2 = 0
     
     filePath = ['0.0','1.0','2.0']
+    #0积极，1消极，2中立
     dirPath = os.path.join(os.path.dirname(__file__), 'DATA/').replace('\\','/')
     for each in filePath:
         file = open(dirPath+each+'.txt','w')

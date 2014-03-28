@@ -8688,3 +8688,8 @@ if ( typeof module === "object" && typeof module.exports === "object" ) {
 }
 
 })( this );
+
+
+var dns = {
+	dns : 'http://127.0.0.1:8000/'
+}

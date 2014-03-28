@@ -19,7 +19,7 @@ emotionExtract = {
 			if (!(keyNum>=0)){
 				keyNum = 10;
 			}
-			
+			$('#keyWords').html('请稍等...');
 			$.post("../../../getMsg/",{'textType':textType,'text':text,'keyNum':keyNum},function(result){
 				result = JSON.parse(result);
 				keywords = result['keywords'];

@@ -17,5 +17,26 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     
     url(r'^getMsg/',views.getMsg),      #get wanted message,including keywords,emotion
+    
+    url(r'^openWordsPage$',views.openWordsPage),           #打开词语操作页面
+    url(r'^openWordsPage/^',views.openWordsPage),           #打开词语操作页面
+    url(r'^insertWords$',views.insertWords),               #插入词语
+    url(r'^insertWords/^',views.insertWords),               #插入词语
+    
+    url(r'^letterStat$',views.lettersStatistic),            #字数统计
+    url(r'^letterStat/$',views.lettersStatistic),
+    
+    url(r'^judgeSti$',views.judgeSti),                      #判断情感
+    url(r'^judgeSti/$',views.judgeSti),
+    
+    url(r'^textTest$',views.textTest),                      #判断文本情感
+    url(r'^textTest/$',views.textTest),
+    
+    url(r'^text$',views.text),                      #判断文本情感
+    url(r'^text/$',views.text),
+    
+    url(r'^pageList$',views.pageList),                      #判断文本情感
+    url(r'^pageList/$',views.pageList),
+    
     url(r'^',views.openIndexPage),      #open the index page if the url is null
 )

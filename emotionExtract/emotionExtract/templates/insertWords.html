@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>情感分析</title>
+		<link href="/static/css/base.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div class="words-set">
+			<textarea id="words"></textarea>
+			<select id="type">
+				<option value="-1">消极词汇</option>
+				<option value="0">中性词汇</option>
+				<option value="1">积极词汇</option>
+				<option value="2">程度副词</option>
+				<option value="3">语气词</option>
+				<option value="4">否定词</option>
+				<option value="5">主张词</option>
+			</select><br/>
+			<select id="lang">
+				<option value="0">中文</option>
+				<option value = "1">英文</option>
+			</select>
+			<label>分数：<input id="score" type="text" /></label><br/>
+			<button id="btn">提交</button>
+			<button id="btn_1">字数统计</button>
+		</div>
+		<div id="showResult"></div>
+	</body>
+	<script src="/static/js/jquery.js"></script>
+	<script src="/static/js/wordsOpe.js"></script>
+</html>

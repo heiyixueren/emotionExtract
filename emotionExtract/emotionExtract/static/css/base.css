@@ -13,3 +13,9 @@ body {
 	margin: 0 auto;
 	display:none;
 }
+
+#words {
+	width:150px;
+	height:200px;
+	display:block;
+}
